@@ -12,7 +12,6 @@ exports.allowed = function(req, res, next){
 	}
 
 	if(key && req.headers && req.headers.authorization){
-		console.log(key, req.headers.authorization);
 		if(key === req.headers.authorization){
 				return next();
 		}		
