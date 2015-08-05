@@ -64,7 +64,10 @@ function processChannel(channel){
 				console.log('added video:', video.id);
 			});
 		}).then(function(){
-			console.log('--- completed processing channel', channel.name);
+			// save the channel, which should automatically save any time updates provided for each feed
+			return channel.saveAsync().then(function(){
+				console.log('--- completed processing channel', channel.name);	
+			});			
 		});
 
 	}).catch(function(err){
