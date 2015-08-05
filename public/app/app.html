@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<ul class="nav navbar-nav navbar-left">
+			<li><a ui-sref="app.channels">Channels</a></li>
+			<li><a ui-sref="app.users">Users</a></li>
+		</ul>
+		<form class="navbar-form navbar-right" role="access">
+			<div class="form-group">
+				<input type="text" class="form-control" ng-model="accessToken" placeholder="Code">
+			</div>
+			<button class="btn btn-default" ng-click="updateToken(accessToken)">Update Access Code</button>
+		</form>
+	</div>
+</nav>
+<div class="container">
+	<div ui-view=""></div>
+</div>

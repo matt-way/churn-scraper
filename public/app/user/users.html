@@ -1,0 +1,37 @@
+<div class="page-header">
+	<h4><span class="label label-primary">Create User Token Link</span></h4>
+</div>
+<form>
+	<div class="form-group">
+		<label>User Name</label>
+		<input type="text" class="form-control" ng-model="user.name" placeholder="Name">
+	</div>
+	<div class="form-group">
+		<label>User Token</label>
+		<input type="text" class="form-control" ng-model="user.token" placeholder="Token">
+	</div>
+	<button ng-click="createUser()" class="btn btn-default">Create</button>
+	<div ng-repeat="error in errors" class="alert alert-danger" role="alert">
+		<div class="pull-right">
+			<button class="btn btn-warning" ng-click="closeError($index)">Close</button>
+		</div>
+		<pre>{{error}}</pre>
+	</div>
+</form>
+<div class="page-header">
+	<h4><span class="label label-primary">User List</span></h4>
+	<button class="btn btn-default" ng-click="refreshUsers()">Refresh</button>
+</div>
+<table class="table">
+	<tr>
+		<th>Name</th><th>Token</th><th>Options</th>
+	</tr>
+	<tr ng-repeat="u in users">
+		<td><input class="form-control" type="text" ng-model="u.name"></td>
+		<td><input class="form-control" type="text" ng-model="u.token"></td>
+		<td>
+			<button class="btn btn-default" ng-click="updateUser($index)">Update</button>
+			<button class="btn btn-default" ng-click="deleteUser($index)">Delete</button>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,47 @@
+<div class="page-header">
+	<h3><span class="label label-primary">{{channel._id}} - {{channel.name}}</span></h3>
+</div>
+<div class="page-header">
+	<h4><span class="label label-primary">Create New Feed</span></h4>
+</div>
+<form>
+	<div class="form-group">
+		<label>Name</label>
+		<input type="text" class="form-control" ng-model="feed.name" placeholder="Name">
+	</div>
+	<div class="form-group">
+		<label>URL</label>
+		<input type="text" class="form-control" ng-model="feed.url" placeholder="URL">
+	</div>
+	<div class="form-group">
+		<label>Author</label>
+		<select class="form-control" ng-model="feed.author" ng-options="user._id as user.name for user in users"></select>
+	</div>
+	<button ng-click="createFeed()" class="btn btn-default">Create</button>
+	<div ng-repeat="error in errors" class="alert alert-danger" role="alert">
+		<div class="pull-right">
+			<button class="btn btn-warning" ng-click="closeError($index)">Close</button>
+		</div>
+		<pre>{{error}}</pre>
+	</div>
+</form>
+<div class="page-header">
+	<h4><span class="label label-primary">Feeds</span></h4>
+	<button class="btn btn-default" ng-click="refreshChannel()">Refresh</button>
+</div>
+<table class="table">
+	<tr>
+		<th>Name</th><th>URL</th><th>Author</th><th>Options</th>
+	</tr>
+	<tr ng-repeat="feed in channel.feeds">
+		<td><input class="form-control" type="text" ng-model="feed.name"></td>
+		<td><input class="form-control" type="text" ng-model="feed.url"></td>
+		<td>
+			<select class="form-control" ng-model="feed.author._id" ng-options="user._id as user.name for user in users"></select>
+		</td>
+		<td>
+			<button class="btn btn-default" ng-click="updateFeed($index)">Update</button>
+			<button class="btn btn-default" ng-click="deleteFeed($index)">Delete</button>
+		</td>
+	</tr>
+</table>

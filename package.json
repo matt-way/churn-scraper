@@ -1,0 +1,26 @@
+{
+  "name": "churn-scraper",
+  "version": "1.0.0",
+  "description": "Automatic video aggregator for Churn",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matt-way/churn-scraper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matt-way/churn-scraper/issues"
+  },
+  "homepage": "https://github.com/matt-way/churn-scraper",
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "lodash": "^3.10.1",
+    "mongoose": "^4.1.1"
+  }
+}
