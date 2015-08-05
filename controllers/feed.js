@@ -7,12 +7,8 @@ var Channel = require('../models/channel'),
 // add a new feed to a channel
 // assumes channel on req
 exports.add = function(req, res, next){
-	console.log(req.body);
-	console.log(req.channel.feeds);
 	var feed = new Feed.model(req.body);
 	req.channel.feeds.push(feed);
-	console.log('---');
-	console.log(req.channel.feeds);
 	req.channel.saveAsync().spread(function(channel, numAffected){
 		return res.json(channel);
 	}).catch(next);
