@@ -4,7 +4,7 @@ angular.module('churnScraper.api', [])
 
 		// auth header setup
 		var authHeader = function(){
-			return 'Bearer ' + $localStorage.scraperToken;
+			return $localStorage.scraperToken;
 		};
 
 		$http.defaults.headers.common['Authorization'] = authHeader;
